@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokalyan Diagnostic Center</title>
+
+  <style>
+    :root {
+      --primary1: #0078d7;
+      --primary2: #00b4d8;
+      --primary3: #002b80;
+      --bg: #f7faff;
+      --card: #ffffff;
+      --border: #d1d5db;
+      --success: #34d399;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #000;
+      font-family: "Inter", sans-serif;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(to right, var(--primary1), var(--primary2));
+      color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo-circle {
+      width: 70px;
+      height: 70px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    /* ===== NAVIGATION BAR ===== */
+    nav {
+      background: linear-gradient(to right, var(--primary1), var(--primary2));
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 12px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      opacity: 0.7;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary3);
+      font-size: 28px;
+      margin-top: 0;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--primary3);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tab.active {
+      background: var(--primary2);
+      color: white;
+      border-color: var(--primary2);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #f0f4ff;
+      color: var(--primary3);
+    }
+
+    .btn {
+      background: var(--primary1);
+      color: white;
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: var(--primary3);
+    }
+
+    /* ===== MODAL ===== */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal {
+      background: #fff;
+      width: 90%;
+      max-width: 480px;
+      border-radius: 10px;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .close {
+      float: right;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    label {font-weight: 600; margin-top: 10px; display: block;}
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .slot {
+      padding: 7px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .slot.selected {
+      background: var(--primary2);
+      color: white;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--success);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-container">
+      <div class="logo-circle">
+        <img src="images/logo.png" class="logo" alt="Logo">
+      </div>
+      <h2>Lokkalyan Diagnostic Center</h2>
+    </div>
+  </header>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="labs.html">Labs</a></li>
+      <li><a href="tests.html">Tests</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="organisation.html" >Organisation</a></li>
+      <li><a href="feedback.html">Feedback </a></li>
+      <li><a href="chatbot.html">Chatbot</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="container">
+    <h1>Tests & Services</h1>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="tests">Tests</button>
+      <button class="tab" data-tab="services">Services</button>
+    </div>
+
+    <div id="tests" class="card">
+      <h3>Available Tests</h3>
+      <table>
+        <thead>
+          <tr><th>Test</th><th>Duration</th><th>Price (₹)</th><th></th></tr>
+        </thead>
+        <tbody id="testsTable"></tbody>
+      </table>
+    </div>
+
+    <div id="services" class="card" style="display:none;">
+      <h3>Available Services</h3>
+      <table>
+        <thead>
+          <tr><th>Service</th><th>Description</th><th>Price (₹)</th><th></th></tr>
+        </thead>
+        <tbody id="servicesTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <button class="close" id="closeModal">✕</button>
+      <h2 id="modalTitle">Book Now</h2>
+
+      <form id="bookForm">
+        <label>Name</label>
+        <input type="text" id="name" required>
+
+        <label>Phone</label>
+        <input type="tel" id="phone" required pattern="[0-9]{10,15}">
+
+        <label>Date</label>
+        <input type="date" id="date" required>
+
+        <label>Time Slot</label>
+        <div id="slots" class="time-slots"></div>
+
+        <button class="btn" style="margin-top:12px;">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Booking Confirmed!</div>
+
+  <script>
+    /* ===== 50 TESTS ===== */
+    const tests = [
+      {name:"CBC (Complete Blood Count)",duration:"30 min",price:250},
+      {name:"Blood Sugar (Fasting)",duration:"45 min",price:120},
+      {name:"Blood Sugar (PP)",duration:"45 min",price:120},
+      {name:"HBA1C",duration:"1 hr",price:350},
+      {name:"Lipid Profile",duration:"1 hr 30 min",price:600},
+      {name:"Liver Function Test (LFT)",duration:"1 hr",price:550},
+      {name:"Kidney Function Test (KFT)",duration:"1 hr",price:500},
+      {name:"Thyroid Profile (T3, T4, TSH)",duration:"1 hr",price:450},
+      {name:"TSH",duration:"1 hr",price:250},
+      {name:"T3",duration:"1 hr",price:200},
+      {name:"T4",duration:"1 hr",price:200},
+      {name:"Vitamin D",duration:"1 hr 30 min",price:900},
+      {name:"Vitamin B12",duration:"1 hr 30 min",price:800},
+      {name:"CRP (C-Reactive Protein)",duration:"45 min",price:300},
+      {name:"ESR",duration:"30 min",price:150},
+      {name:"Urine Routine",duration:"30 min",price:80},
+      {name:"Urine Culture",duration:"48 hr",price:450},
+      {name:"Widal Test",duration:"30 min",price:200},
+      {name:"RA Factor",duration:"1 hr",price:300},
+      {name:"Dengue NS1",duration:"1 hr",price:600},
+      {name:"Dengue IgG/IgM",duration:"1 hr",price:700},
+      {name:"Malaria Test",duration:"45 min",price:250},
+      {name:"HIV Test",duration:"1 hr",price:350},
+      {name:"HBsAg",duration:"1 hr",price:300},
+      {name:"HCV Test",duration:"1 hr",price:350},
+      {name:"Serum Calcium",duration:"45 min",price:200},
+      {name:"Serum Uric Acid",duration:"45 min",price:180},
+      {name:"Serum Electrolytes",duration:"1 hr",price:350},
+      {name:"Blood Grouping",duration:"15 min",price:100},
+      {name:"Bilirubin Total",duration:"45 min",price:200},
+      {name:"SGPT",duration:"45 min",price:200},
+      {name:"SGOT",duration:"45 min",price:200},
+      {name:"Creatinine",duration:"45 min",price:200},
+      {name:"Urea",duration:"45 min",price:180},
+      {name:"AMH",duration:"1 hr 30 min",price:2000},
+      {name:"ANA (ELISA)",duration:"1 hr",price:450},
+      {name:"Anti-TPO",duration:"45 min",price:800},
+      {name:"ASO TITRE",duration:"30 min",price:200},
+      {name:"BETA HCG",duration:"45 min",price:300},
+      {name:"Ferritin",duration:"1 hr",price:500},
+      {name:"Prolactin",duration:"1 hr",price:450},
+      {name:"FSH",duration:"1 hr",price:450},
+      {name:"LH",duration:"1 hr",price:450},
+      {name:"Testosterone",duration:"1 hr",price:650},
+      {name:"Insulin Fasting",duration:"1 hr",price:550},
+      {name:"PT/INR",duration:"45 min",price:350},
+      {name:"D-Dimer",duration:"45 min",price:650},
+      {name:"Troponin-I",duration:"45 min",price:700},
+      {name:"Covid Antigen",duration:"20 min",price:250}
+    ];
+
+    /* SERVICES */
+    const services = [
+      {name:"Home Sample Collection",desc:"Doorstep sample collection by trained staff",price:150},
+      {name:"Pathology Screening",desc:"Reliable pathology testing & reports",price:200},
+      {name:"Doctor Consultation",desc:"Expert pathology consultation",price:150}
+    ];
+
+    const slots = ["09:00 AM","09:30 AM","10:00 AM","10:30 AM","11:00 AM","11:30 AM","12:00 PM","04:00 PM","04:30 PM","05:00 PM"];
+
+    const testsTable = document.getElementById("testsTable");
+    const servicesTable = document.getElementById("servicesTable");
+    const modalBg = document.getElementById("modalBg");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeModal = document.getElementById("closeModal");
+    const toast = document.getElementById("toast");
+    const slotsContainer = document.getElementById("slots");
+    const dateInput = document.getElementById("date");
+
+    let selectedSlot = "";
+
+    const today = new Date();
+    dateInput.min = today.toISOString().split("T")[0];
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 2000);
+    }
+
+    function renderTables() {
+      testsTable.innerHTML = tests.map((t,i) =>
+        `<tr>
+          <td>${t.name}</td>
+          <td>${t.duration}</td>
+          <td>${t.price}</td>
+          <td><button class='btn' onclick="openModal('test',${i})">Book</button></td>
+        </tr>`).join("");
+
+      servicesTable.innerHTML = services.map((s,i) =>
+        `<tr>
+          <td>${s.name}</td>
+          <td>${s.desc}</td>
+          <td>${s.price}</td>
+          <td><button class='btn' onclick="openModal('service',${i})">Book</button></td>
+        </tr>`).join("");
+    }
+
+    function openModal(type,i){
+      const item = type==="test" ? tests[i] : services[i];
+      modalTitle.textContent = "Book: " + item.name;
+      modalBg.style.display = "flex";
+      selectedSlot = "";
+      document.querySelectorAll(".slot").forEach(e=>e.classList.remove("selected"));
+    }
+
+    closeModal.onclick = () => modalBg.style.display = "none";
+    modalBg.onclick = (e) => { if(e.target===modalBg) modalBg.style.display="none"; };
+
+    slotsContainer.innerHTML = slots.map(t =>
+      `<div class="slot" onclick="selectSlot(this,'${t}')">${t}</div>`
+    ).join("");
+
+    function selectSlot(el,time){
+      document.querySelectorAll(".slot").forEach(s=>s.classList.remove("selected"));
+      el.classList.add("selected");
+      selectedSlot = time;
+    }
+
+    document.getElementById("bookForm").onsubmit = function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+
+      if(!selectedSlot){ alert("Select a time slot"); return; }
+
+      modalBg.style.display="none";
+      showToast("Thank you " + name + "! Your booking is confirmed.");
+      e.target.reset();
+    };
+
+    document.querySelectorAll(".tab").forEach(tab=>{
+      tab.onclick = () => {
+        document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+        tab.classList.add("active");
+
+        document.getElementById("tests").style.display =
+          tab.dataset.tab==="tests" ? "block" : "none";
+
+        document.getElementById("services").style.display =
+          tab.dataset.tab==="services" ? "block" : "none";
+      }
+    });
+
+    renderTables();
+  </script>
+
+</body>
+</html>
+=======
+

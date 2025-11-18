@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback | Lokkalyan Diagnostic Center</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f9ff;
+    }
+
+    /* ===== HEADER WITH BLUE SHADES ===== */
+    header {
+      width: 100%;
+      background: linear-gradient(to right, #0099cc, #007bff);
+      padding: 15px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .logo-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+      object-fit: cover;
+    }
+
+    /* CLEAN NAVIGATION BAR — NO BOX BELOW */
+    nav {
+      margin-top: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ===== FEEDBACK FORM ===== */
+    .form-container {
+      width: 90%;
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 12px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 5px;
+      border: 1px solid #aaa;
+      font-size: 15px;
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #005fcc;
+    }
+
+    footer {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo-section">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+      <h1>Lokkalyan Diagnostic Center</h1>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="tests.html">Tests</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="organisation.html" >Organisation</a></li>
+        <li><a href="feedback.html" class="active">Feedback Form</a></li>
+        <li><a href="Chatbot.html">Chatbot</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== FEEDBACK FORM ===== -->
+  <div class="form-container">
+    <h2>Feedback Form</h2>
+
+    <form>
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your name" />
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" />
+
+      <label>Phone Number</label>
+      <input type="text" placeholder="Enter your phone number" />
+
+      <label>Your Feedback</label>
+      <textarea placeholder="Write your feedback here..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Lokkalyan Diagnostic Center | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
+=======

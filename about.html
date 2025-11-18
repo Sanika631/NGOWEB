@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Management Body | Lokkalyan Diagnostic Center</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f9ff;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      width: 100%;
+      background: linear-gradient(to right, #0099cc, #007bff);
+      padding: 15px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 4px;
+    }
+
+    /* ===== NAVIGATION BAR BELOW NGO NAME ===== */
+    nav {
+      margin-top: 12px;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 10px 0;
+      backdrop-filter: blur(4px);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    /* ===== MANAGEMENT BODY SECTION ===== */
+    .management-section {
+      width: 90%;
+      margin: 35px auto;
+      text-align: center;
+    }
+
+    .management-section h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #007bff;
+    }
+
+    .management-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    /* ===== BOX COLOR UPDATED TO #0099cc ===== */
+    .member-card {
+      background: #0099cc;
+      padding: 20px;
+      border-radius: 12px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: 0.3s;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .member-card h3 {
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .member-card p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo-section">
+      <img src="images/logo.png" alt="Lokkalyan Logo" class="logo">
+      <h1>Lokkalyan Diagnostic Center</h1>
+    </div>
+
+    <!-- Navigation Bar BELOW NGO Name -->
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="labs.html">Labs</a></li>
+        <li><a href="tests.html">Tests</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="organisation.html" >Organisation</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="Chatbot.html">Chatbot</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MANAGEMENT BODY ===== -->
+  <main class="management-section">
+    <h2>Management Body</h2>
+
+    <div class="management-grid">
+
+      <div class="member-card">
+        <h3>Dr. Vijaykumar Tungar</h3>
+        <p>Director</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Shri Anandji Muley</h3>
+        <p>Secretary</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Shri Vinay Ambulkar</h3>
+        <p>Project Coordinator</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Dr. Prashant Ansigkar</h3>
+        <p>Member</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Dr. Shilpa Patil</h3>
+        <p>Member</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Dr. Priti Kulkarni</h3>
+        <p>Member</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Priyanka Raut</h3>
+        <p>Technical Manager</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Shri Chandrahas Muley</h3>
+        <p>Treasurer</p>
+      </div>
+
+      <div class="member-card">
+        <h3>Shri Nilesh Joshi</h3>
+        <p>Technical Director</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Lokkalyan Diagnostic Center | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
+>>>>>>> 3d89c8888dbe6e82a9de83edaffb96ac751ba538

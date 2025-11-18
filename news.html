@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEWS - Lokalyan Diagnostic Center</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #0099cc, #007bff);
+      padding: 15px 0;
+      color: white;
+      text-align: center;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      background: linear-gradient(135deg, #0099cc, #007bff);
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      text-decoration: underline;
+    }
+
+    /* ===== PAGE CONTENT ===== */
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 28px;
+      color: #004080;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+
+    .gallery img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <img src="images/logo.png" alt="Lokalyan Logo" class="logo">
+      <h1>Lokalyan Diagnostic Center</h1>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="labs.html">Labs</a></li>
+      <li><a href="tests.html">Tests</a></li>
+      <li><a href="news.html" class="active">News</a></li>
+      <li><a href="organisation.html">Organisation</a></li>
+      <li><a href="feedback.html">Feedback Form</a></li>
+      <li><a href="Chatbot.html">Chatbot</a></li>
+      <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <h1>Our NGO Work</h1>
+
+  <div class="gallery">
+    <img src="images/n1.png.jpg" alt="Image 1">
+    <img src="images/n2.png.jpg" alt="Image 2">
+    <img src="images/n3.png.jpg" alt="Image 3">
+    <img src="images/n4.png.jpg" alt="Image 4">
+  </div>
+
+</body>
+</html>
